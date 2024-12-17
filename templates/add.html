@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOOKS</title>
+    <h1>FAIRY BOOK WORLD</h1>
+<!--    <form action="{% url 'search' %}" method="GET" style="display: inline;">-->
+<!--        <input type="text" name="search" placeholder="Search Book" class="form-control" style="width: 200px; display: inline;">-->
+<!--        <button type="submit" class="btn btn-primary">Search</button>-->
+<!--    </form>-->
+</head>
+ <style>
+         body {
+            margin: 0;
+            padding: 0;
+
+        }
+
+         h1 {
+             margin: 0; /* Removes default margin */
+             text-align: center;
+             position: absolute;
+             top: 15px;
+
+
+         }
+        /* Centering the form */
+        body {
+            display: flex; /* Use flexbox for layout */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            height: 100vh; /* Full height of the viewport */
+            margin: 0; /* Remove default margin */
+            background-color: #f0f0f0; /* Background color */
+        }
+
+        form {
+            background: white; /* Form background */
+            padding: 20px; /* Padding inside the form */
+            border-radius: 5px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        label {
+            display: block; /* Make labels block elements */
+            margin-bottom: 5px; /* Space between label and input */
+        }
+
+        input[type="text"], input[type="file"] {
+            width: 100%; /* Full width of the parent */
+            padding: 10px; /* Padding inside input */
+            margin-bottom: 15px; /* Space between inputs */
+            border: 1px solid #ccc; /* Border color */
+            border-radius: 4px; /* Rounded corners */
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50; /* Green background */
+            color: white; /* White text */
+            border: none; /* No border */
+            padding: 10px 15px; /* Padding */
+            border-radius: 4px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+    </style>
+<body>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+  <label for="book_id">book_id</label><br>
+  <input type="text" id="book_id" name="book_id"><br>
+  <label for="author">author</label><br>
+  <input type="text" id="author" name="author"><br><br>
+   <label for="about">about</label><br>
+  <input type="text" id="about" name="about"><br><br>
+  <label for="image">image</label>
+   <input type="file" id="bookimage" name="image"><br>
+   <label for="price">price</label><br>
+  <input type="text" id="price" name="price"><br><br>
+
+  <input type="submit" value="Submit">
+    <form action="{% url 'search' %}" method="POST" style="display: inline;">
+        {% csrf_token %}
+        <input type="text" name="search" placeholder="Search Book" class="form-control" style="width: 200px; display: inline;">
+        <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+</form>
+</body>
+</html>
